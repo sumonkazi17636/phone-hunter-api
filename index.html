@@ -22,13 +22,13 @@
     </section>
     <main class="container mx-auto mt-8">
 
-        
+
         <section>
             <div id="loading-spinner" class="my-40 text-center hidden">
                 <span class="loading loading-dots loading-lg"></span>
             </div>
             <div id="phone-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4">
-                
+
             </div>
         </section>
         <section>
@@ -37,6 +37,23 @@
 
             </div>
         </section>
+        <!-- Open the modal using ID.showModal() method -->
+
+<dialog id="show_details_modal" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <h3 id="show-details-phone-name" class="font-bold text-lg"></h3>
+    <div id="show-details-container">
+        
+
+    </div>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
     </main>
     <footer>
 

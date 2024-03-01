@@ -32,8 +32,8 @@ const displayPhones = (phones,isShowAll) => {
                     <div class="card-body">
                       <h2 class="card-title">${phone.phone_name}</h2>
                       <p>If a dog chews shoes whose shoes does he choose?</p>
-                      <div class="card-actions justify-end">
-                        <button class="btn btn-primary">Buy Now</button>
+                      <div class="card-actions justify-center">
+                        <button onclick = "handleShowDetails('${phone.slug}')" class="btn btn-primary">Show Details</button>
                       </div>
                     </div>
                   </div>
@@ -72,4 +72,27 @@ const handleShowAll = ()=>{
 }
 
 
+const handleShowDetails = async (id) => {
+        const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`)
+        const data = await res.json();
+        const phone = data.data;
+        showDetailsModal(phone)
+}
 
+const showDetailsModal = (phone) =>{
+  console.log(phone)
+  const phoneName = document.getElementById('show-details-phone-name')
+  phoneName.innerText = phone.name;
+  const showDetailsContainer = document.getElementById('show-details-container');
+  showDetailsContainer.innerHTML = `
+  <img src = "${phone.image}" alt =""/>
+  <p><span>Storage:</span>${phone?.mainFeatures?.storage}</p>
+  <p><span>Chipset:</span>${phone?.mainFeatures?.chipSet}</p>
+  <p><span>Memory:</span>${phone?.mainFeatures?.memory}</p>
+  <p><span>Slug:</span>${phone?.slug}</p>
+  <p><span>Realease Date:</span>${phone?.mainFeatures?.releaseDate}</p>
+  <p><span>Brand:</span>${phone?.brand}</p>
+  <p><span>GPS:</span>${phone?.others?.GPS}</p>
+  `
+  show_details_modal.showModal();
+}
