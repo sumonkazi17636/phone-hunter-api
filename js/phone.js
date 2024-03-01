@@ -90,7 +90,7 @@ const showDetailsModal = (phone) =>{
   <p><span>Chipset:</span>${phone?.mainFeatures?.chipSet}</p>
   <p><span>Memory:</span>${phone?.mainFeatures?.memory}</p>
   <p><span>Slug:</span>${phone?.slug}</p>
-  <p><span>Realease Date:</span>${phone?.mainFeatures?.releaseDate}</p>
+  <p><span>Realease Date:</span>${phone?.releaseDate}</p>
   <p><span>Brand:</span>${phone?.brand}</p>
   <p><span>GPS:</span>${phone?.others?.GPS}</p>
   `
